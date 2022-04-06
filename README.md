@@ -3,7 +3,20 @@
 Terraform module to deploy Fortigate VM instance into existing Transit VPC for Aviatrix Firenet integration
 Includes a bootstrap to configure allow all policy for east-wast (traffic nspection) and north-south (egress)
 
-## Usage with minimal customisation
+## Usage with minimal customisation with default admin password: Aviatrix123#
+
+```hcl
+module "fortigate_vm_1" {
+  source  = "bayupw/fortigate-vm-for-aviatrix/aws"
+  version = "1.0.0"
+
+  vpc_id            = "vpc-0a1b2c3d4e"
+  egress_subnet_id  = "subnet-0a1b2c3d4e"
+  lan_subnet_id     = "subnet-1b2c3d4e5f"
+}
+```
+
+## Usage with customisation on firewall instance details
 
 ```hcl
 module "fortigate_vm_1" {
